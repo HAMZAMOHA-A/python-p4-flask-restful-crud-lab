@@ -1,16 +1,9 @@
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy_serializer import SerializerMixin
+#!/usr/bin/env python3
 
-db = SQLAlchemy()
+from app import app
+from models import db, Plant
 
-class Plant(db.Model, SerializerMixin):
-    __tablename__ = 'plants'
-
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
-    image = db.Column(db.String)
-    price = db.Column(db.Float)
-    is_in_stock = db.Column(db.Boolean)
-
-    def __repr__(self):
-        return f'<Plant {self.name} | In Stock: {self.is_in_stock}>'
+if __name__ == '__main__':
+    
+    with app.app_context():
+        import ipdb; ipdb.set_trace()
